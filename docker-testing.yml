@@ -1,15 +1,15 @@
-- hosts: docker-testing
+- hosts: dockertesting
   become: yes
   tasks:
-    - name: Build docker-testing
+    - name: Build dockertesting
       docker_image:
-        name: docker-testing
+        name: dockertesting
         path: ../docker-testing
 
-    - name: Start docker-testing container
+    - name: Start dockertesting container
       docker_container:
-        name: docker-testing
-        image: docker-testing
+        name: dockertesting
+        image: dockertesting
         network_mode: host
         detach: yes
         restart_policy: always
