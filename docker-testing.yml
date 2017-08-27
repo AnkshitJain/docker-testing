@@ -1,0 +1,17 @@
+- hosts: docker-testing
+  become: yes
+  tasks:
+    - name: Build docker-testing
+      docker_image:
+        name: docker-testing
+        path: ../docker-testing
+
+    - name: Start docker-testing container
+      docker_container:
+        name: docker-testing
+        image: docker-testing
+        network_mode: host
+        detach: yes
+        restart_policy: always
+        volumes:
+          - "../docker-testing:/docker-testing"
